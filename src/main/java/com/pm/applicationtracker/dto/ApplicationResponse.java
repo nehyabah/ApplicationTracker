@@ -3,8 +3,13 @@ package com.pm.applicationtracker.dto;
 import java.time.LocalDate;
 
 public record ApplicationResponse(
-
+         Long id,
          String position,
-         float salaryRange,
-         LocalDate dateApplied) {
+         double minSalary,
+         double maxSalary,
+         LocalDate dateApplied,
+         String notes,
+         String status,
+         Long companyName
+         ) {
 }
