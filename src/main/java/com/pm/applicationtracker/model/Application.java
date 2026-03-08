@@ -13,8 +13,10 @@ public class Application {
 
 
     private String position;
-    private float salaryRange;
+    private double minSalary;
+    private double maxSalary;
     private LocalDate dateApplied;
+    private String notes;
 
 
     @Enumerated(EnumType.STRING)
@@ -24,22 +26,18 @@ public class Application {
     @JoinColumn(name = "company_id")
     private Company company;
 
-    public Company getCompany() {
-        return company;
-    }
-
-    public void setCompany(Company company) {
-        this.company = company;
-    }
 
     public Application() {
     }
 
-    public Application(String position, float salaryRange, LocalDate dateApplied, ApplicationStatus status) {
+    public Application(String position, double minSalary, double maxSalary, LocalDate dateApplied, String notes, ApplicationStatus status, Company company) {
         this.position = position;
-        this.salaryRange = salaryRange;
+        this.minSalary = minSalary;
+        this.maxSalary = maxSalary;
         this.dateApplied = dateApplied;
+        this.notes = notes;
         this.status = status;
+        this.company = company;
     }
 
     public Long getId() {
@@ -50,12 +48,20 @@ public class Application {
         return position;
     }
 
-    public float getSalaryRange() {
-        return salaryRange;
+    public double getMinSalary() {
+        return minSalary;
+    }
+
+    public double getMaxSalary() {
+        return maxSalary;
     }
 
     public LocalDate getDateApplied() {
         return dateApplied;
+    }
+
+    public String getNotes() {
+        return notes;
     }
 
     public ApplicationStatus getStatus() {
@@ -66,15 +72,32 @@ public class Application {
         this.position = position;
     }
 
-    public void setSalaryRange(float salaryRange) {
-        this.salaryRange = salaryRange;
+    public void setMinSalary(double minSalary) {
+        this.minSalary = minSalary;
+    }
+
+    public void setMaxSalary(double maxSalary) {
+        this.maxSalary = maxSalary;
     }
 
     public void setDateApplied(LocalDate dateApplied) {
         this.dateApplied = dateApplied;
     }
 
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
     public void setStatus(ApplicationStatus status) {
         this.status = status;
+    }
+
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
     }
 }

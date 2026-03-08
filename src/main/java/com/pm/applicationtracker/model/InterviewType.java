@@ -1,6 +1,6 @@
 package com.pm.applicationtracker.model;
 
-public enum InterveiwType {
+public enum InterviewType {
     PHONE,
     VIDEO,
     ONSITE,

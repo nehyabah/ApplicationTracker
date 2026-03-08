@@ -3,6 +3,9 @@ package com.pm.applicationtracker.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class Company {
 
@@ -14,17 +17,14 @@ public class Company {
     private String industry;
 
 
-    @ManyToOne
-    @JoinColumn(name = "application_id")
-    private Application application;
+    @OneToMany(mappedBy = "company")
+    private List<Application> applications = new ArrayList<>();
 
-    public Application getApplication() {
-        return application;
+
+    public List<Application> getApplications() {
+        return applications;
     }
 
-    public void setApplication(Application application) {
-        this.application = application;
-    }
 
     public Company() {
     }
