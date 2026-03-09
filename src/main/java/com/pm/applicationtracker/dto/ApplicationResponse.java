@@ -1,5 +1,7 @@
 package com.pm.applicationtracker.dto;
 
+import com.pm.applicationtracker.model.ApplicationStatus;
+
 import java.time.LocalDate;
 
 public record ApplicationResponse(
@@ -9,7 +11,7 @@ public record ApplicationResponse(
          double maxSalary,
          LocalDate dateApplied,
          String notes,
-         String status,
-         Long companyName
+         ApplicationStatus status,
+         String companyName
          ) {
 }
