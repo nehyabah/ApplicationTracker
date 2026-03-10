@@ -1,14 +1,10 @@
 package com.pm.applicationtracker.controller;
-
 import com.pm.applicationtracker.dto.ApplicationRequest;
 import com.pm.applicationtracker.dto.ApplicationResponse;
-
 import com.pm.applicationtracker.model.ApplicationStatus;
 import com.pm.applicationtracker.service.ApplicationService;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 
@@ -18,7 +14,7 @@ public class ApplicationController {
 
     private final ApplicationService applicationService;
 
-    @Autowired
+
     public ApplicationController(ApplicationService applicationService) {
         this.applicationService = applicationService;
     }
