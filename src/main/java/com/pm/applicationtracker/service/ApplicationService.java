@@ -45,10 +45,27 @@ public class ApplicationService {
         return toResponse(application);
     }
 
+    public ApplicationResponse getApplication(Long id) {
+        return  toResponse(findApplicationOrThrow(id));
+    }
+
+    public void deleteApplication(Long id) {
+        Application application = findApplicationOrThrow(id);
+        applicationRepository.delete(application);
+
+    }
+
+    public List<ApplicationResponse> getApplicationsByStatus(ApplicationStatus status) {
+        return applicationRepository.findByStatus(status).stream().map(this::toResponse).toList();
+    }
+
+    public List<ApplicationResponse> getApplicationsByCompany(Long companyId) {
+        return applicationRepository.findByCompanyId(companyId).stream().map(this::toResponse).toList();
+    }
+
     public Application findApplicationOrThrow(Long id) {
         return applicationRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Application with id " + id + " not found"));
     }
-
 
     private ApplicationResponse toResponse(Application application) {
         return new ApplicationResponse(application.getId(), application.getPosition(), application.getMinSalary(), application.getMaxSalary(), application.getDateApplied(), application.getNotes(), application.getStatus(), application.getCompany().getName()
