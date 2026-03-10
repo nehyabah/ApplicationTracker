@@ -17,12 +17,12 @@ public record ApplicationRequest(
         double maxSalary,
 
 
-        @NotBlank(message = "Date is required")
+        @NotNull(message = "Date is required")
         LocalDate dateApplied,
 
         String notes,
 
-        @NotBlank(message = "Company ID is required")
+        @NotNull(message = "Company ID is required")
         Long companyId
 
 

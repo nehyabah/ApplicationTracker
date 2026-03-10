@@ -7,7 +7,6 @@ import com.pm.applicationtracker.exception.ResourceNotFoundException;
 import com.pm.applicationtracker.model.Application;
 import com.pm.applicationtracker.model.Interview;
 import com.pm.applicationtracker.model.InterviewType;
-import com.pm.applicationtracker.repository.ApplicationRepository;
 import com.pm.applicationtracker.repository.InterviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
